@@ -27,15 +27,9 @@
             });
         };
 
-        service.getMenuItems = function (category) {
-            var config = {};
-            if (category) {
-                config.params = { 'category': category };
-            }
-
-            return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
-                return response.data;
-            });
+        service.getSignupInfo = function () {
+            var info = new { 'firstName': service.firstName, 'lastName': service.lastName, 'emailAddress': service.emailAddress, 'phoneNumber': service.phoneNumber, 'favDish': service.favDish };
+            return info;
         };
 
     }
